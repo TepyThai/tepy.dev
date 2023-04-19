@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-gradient {
+  @apply bg-gradient-to-r from-teal-primary via-yellow-primary to-brass;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition-duration: 0.5s;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
