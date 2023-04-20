@@ -5,6 +5,7 @@ import { Menu } from './menu';
 import { MenuToggle } from './menu/menu-toggle';
 import { useCycle } from 'framer-motion';
 import { Navigation } from './menu/navigation';
+import Link from 'next/link';
 
 export const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -19,7 +20,7 @@ export const Header = () => {
         )}
       >
         <div className={cn('flex items-center')}>
-          <a
+          <Link
             href='/'
             className={cn(
               `font-canela text-2xl md:text-4xl font-light text-primary relative`,
@@ -38,9 +39,9 @@ export const Header = () => {
             >
               2
             </span>
-          </a>
+          </Link>
         </div>
-        <Navigation className={cn('hidden')} isOpen={isOpen} />
+        <Navigation className={cn('hidden', 'md:flex')} isOpen={isOpen} />
         <MenuToggle isOpen={isOpen} toggle={() => toggleOpen()} />
       </header>
       <Menu isOpen={isOpen} />

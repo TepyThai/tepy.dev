@@ -52,7 +52,7 @@ export default function RootLayout({
     <html lang='en' className={cn(`${tt_commons.variable} ${canela.variable}`)}>
       <body
         className={cn(
-          'text-lg max-w-screen-xl mx-auto text-primary overflow-x-hidden relative'
+          'text-xl max-w-screen-xl mx-auto text-primary overflow-x-hidden'
         )}
       >
         <Header />

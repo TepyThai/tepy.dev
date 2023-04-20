@@ -1,9 +1,10 @@
 'use client';
 
 import { HTMLMotionProps, motion } from 'framer-motion';
-import { MenuItem } from './menu-item';
+import { NavMenuItem, NavMenuItemProps } from './menu-item';
 import { cn } from '@/lib/utils';
 import { AtomIcon, BinaryIcon, PencilIcon } from 'lucide-react';
+import { MenuItemProps } from '@radix-ui/react-dropdown-menu';
 
 const variants = {
   open: {
@@ -18,29 +19,29 @@ interface Props extends HTMLMotionProps<'ul'> {
   isOpen: boolean;
 }
 
-export const Navigation = ({ isOpen, ...props }: Props) => (
+export const Navigation = ({ isOpen, className, ...props }: Props) => (
   <motion.ul
     variants={variants}
     className={cn(
       'w-full h-full mx-auto px-20 py-32 absolute inset-0',
       isOpen && 'z-10',
-      'md:flex md:px-0 md:py-0 md:gap-x-4 md:items-baseline md:justify-end md:static'
+      'md:flex md:px-0 md:py-0 md:gap-x-4 md:items-baseline md:justify-end md:static',
+      className
     )}
     {...props}
   >
-    {itemIds.map(({ title, icon }) => (
-      <MenuItem key={title} icon={icon}>
-        {title}
-      </MenuItem>
+    {itemIds.map(({ text, icon, href }) => (
+      <NavMenuItem key={text} icon={icon} href={href} text={text} />
     ))}
   </motion.ul>
 );
 
-export const itemIds = [
+export const itemIds: NavMenuItemProps[] = [
   {
-    title: 'Writings',
+    text: 'Writing',
     icon: <PencilIcon />,
+    href: '/w',
   },
-  { title: 'Principles', icon: <AtomIcon /> },
-  { title: 'Projects', icon: <BinaryIcon /> },
+  { text: 'Principle', icon: <AtomIcon />, href: '/p' },
+  { text: 'Project', icon: <BinaryIcon />, href: '/pj' },
 ];

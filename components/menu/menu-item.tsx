@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { itemIds } from './navigation';
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
-import { LucideIcon } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const variants = {
   open: {
@@ -21,25 +21,31 @@ const variants = {
   },
 };
 
-export const MenuItem = ({
-  icon,
-  children,
-}: {
+export interface NavMenuItemProps {
   icon: ReactNode;
-  children: ReactNode;
-}) => {
+  href: string;
+  text: string;
+}
+
+export const NavMenuItem = ({ icon, href, text }: NavMenuItemProps) => {
+  const pathname = usePathname();
+
+  const active = pathname === href;
+
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className={cn(
-        'list-none mb-8 cursor-pointer text-yellow-primary flex items-center justify-start gap-x-4 py-2 text-2xl',
-        'md:inline md:mb-0 md:py-0 md:text-primary'
-      )}
-    >
-      <span className={cn('md:hidden')}> {icon}</span>
-      {children}
-    </motion.li>
+    <Link href={href}>
+      <motion.li
+        variants={variants}
+        className={cn(
+          'list-none mb-8 cursor-pointer text-white flex items-center justify-start gap-x-4 py-2 text-2xl',
+          'md:inline md:mb-0 md:py-0 md:text-primary',
+          'md:hover:text-teal-primary',
+          active && 'text-yellow-primary md:text-teal-primary'
+        )}
+      >
+        <span className={cn('md:hidden')}> {icon}</span>
+        {text}
+      </motion.li>
+    </Link>
   );
 };

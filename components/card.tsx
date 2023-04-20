@@ -37,7 +37,7 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={cn(
-        'w-full p-6 border rounded-sm shadow-lg shrink-0 snap-center',
+        'w-full p-6 border rounded-sm shadow-lg shrink-0 snap-center h-56',
         'md:w-2/3 ',
         themeColors[type].borderColor
       )}
