@@ -19,14 +19,14 @@ export const MenuToggle = ({
     )}
   >
     <motion.span
-      initial='open'
+      initial='closed'
       animate={isOpen ? 'open' : 'closed'}
       variants={motions}
     >
       <MenuIcon />
     </motion.span>
     <motion.span
-      initial='closed'
+      initial='open'
       animate={isOpen ? 'closed' : 'open'}
       variants={motions}
     >

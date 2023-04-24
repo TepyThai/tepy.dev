@@ -1,4 +1,8 @@
+'use client';
+
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 import React, { ReactNode } from 'react';
 
 export interface CardProps {
@@ -6,6 +10,7 @@ export interface CardProps {
   description: string;
   icon?: ReactNode;
   type: 1 | 2;
+  href?: string;
 }
 
 interface Theme {
@@ -33,26 +38,33 @@ export const Card: React.FC<CardProps> = ({
   description,
   icon,
   type = 1,
+  href = '',
 }) => {
   return (
-    <div
+    <motion.div
       className={cn(
-        'w-full p-6 border rounded-sm shadow-lg shrink-0 snap-center h-56',
-        'md:w-2/3 ',
+        'w-full border rounded-sm shadow-lg shrink-0 snap-center h-56 relative',
+        'md:w-2/3',
         themeColors[type].borderColor
       )}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+      layout
     >
-      <div className='flex flex-col items-center justify-start mb-2 md:flex-row md:mb-8'>
-        {icon && (
-          <div className='px-2 py-2 mb-4 mr-0 border rounded-lg w-max h-max border-yellow-primary md:mr-4 md:mb-0'>
-            {icon}
-          </div>
-        )}
-        <h3 className={cn('text-3xl font-bold', themeColors[type].title)}>
-          {title}
-        </h3>
-      </div>
-      <p className='text-base line-clamp-2 md:line-clamp-3'>{description}</p>
-    </div>
+      <Link href={href} className={cn('absolute inset-0 w-full h-full p-6 ')}>
+        <div className='flex flex-col items-center justify-start mb-2 md:flex-row md:mb-8'>
+          {icon && (
+            <div className='px-2 py-2 mb-4 mr-0 border rounded-lg w-max h-max border-yellow-primary md:mr-4 md:mb-0'>
+              {icon}
+            </div>
+          )}
+          <h3 className={cn('text-3xl font-bold', themeColors[type].title)}>
+            {title}
+          </h3>
+        </div>
+        <p className='text-base line-clamp-2 md:line-clamp-3'>{description}</p>
+      </Link>
+    </motion.div>
   );
 };

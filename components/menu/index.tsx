@@ -1,17 +1,16 @@
-'use client';
-
-import { useRef, useState } from 'react';
-import { motion, useCycle } from 'framer-motion';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { useDimensions } from '@/hooks/use-dimensions';
 import { cn } from '@/lib/utils';
 import { Navigation } from './navigation';
+import { NavMenuItemProps } from './menu-item';
 
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`,
     transition: {
       type: 'spring',
-      stiffness: 20,
+      stiffness: 75,
       restDelta: 2,
     },
   }),
@@ -26,7 +25,13 @@ const sidebar = {
   },
 };
 
-export const Menu = ({ isOpen }: { isOpen: boolean }) => {
+export const Menu = ({
+  isOpen,
+  onNavItemClick,
+}: {
+  isOpen: boolean;
+  onNavItemClick: NavMenuItemProps['onClick'];
+}) => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
@@ -41,6 +46,7 @@ export const Menu = ({ isOpen }: { isOpen: boolean }) => {
         isOpen ? 'z-10' : '-z-10',
         'md:hidden'
       )}
+      layout
     >
       <motion.div
         className={cn(
@@ -48,7 +54,7 @@ export const Menu = ({ isOpen }: { isOpen: boolean }) => {
         )}
         variants={sidebar}
       ></motion.div>
-      <Navigation isOpen={isOpen} />
+      <Navigation onNavItemClick={onNavItemClick} isOpen={isOpen} />
     </motion.nav>
   );
 };

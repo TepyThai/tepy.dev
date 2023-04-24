@@ -57,7 +57,7 @@ export const Section: React.FC<Props> = ({
         </h2>
         <div
           className={cn(
-            'flex items-center justify-between gap-2 px-6 py-2 overflow-auto text-white-ish flex-nowrap snap-x snap-proximity',
+            'w-full flex items-center justify-between gap-2 px-6 py-2 overflow-auto text-white-ish flex-nowrap snap-x snap-proximity',
             'md:gap-4 md:flex-col md:items-center',
             'lg:gap-8',
             type === 2 && 'flex-col'

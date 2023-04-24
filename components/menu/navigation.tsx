@@ -1,5 +1,3 @@
-'use client';
-
 import { HTMLMotionProps, motion } from 'framer-motion';
 import { NavMenuItem, NavMenuItemProps } from './menu-item';
 import { cn } from '@/lib/utils';
@@ -17,9 +15,15 @@ const variants = {
 
 interface Props extends HTMLMotionProps<'ul'> {
   isOpen: boolean;
+  onNavItemClick: NavMenuItemProps['onClick'];
 }
 
-export const Navigation = ({ isOpen, className, ...props }: Props) => (
+export const Navigation = ({
+  isOpen,
+  className,
+  onNavItemClick,
+  ...props
+}: Props) => (
   <motion.ul
     variants={variants}
     className={cn(
@@ -31,12 +35,18 @@ export const Navigation = ({ isOpen, className, ...props }: Props) => (
     {...props}
   >
     {itemIds.map(({ text, icon, href }) => (
-      <NavMenuItem key={text} icon={icon} href={href} text={text} />
+      <NavMenuItem
+        onClick={onNavItemClick}
+        key={text}
+        icon={icon}
+        href={href}
+        text={text}
+      />
     ))}
   </motion.ul>
 );
 
-export const itemIds: NavMenuItemProps[] = [
+export const itemIds: Omit<NavMenuItemProps, 'onClick'>[] = [
   {
     text: 'Writing',
     icon: <PencilIcon />,

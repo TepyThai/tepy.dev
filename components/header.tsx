@@ -3,12 +3,15 @@
 import { cn } from '@/lib/utils';
 import { Menu } from './menu';
 import { MenuToggle } from './menu/menu-toggle';
-import { useCycle } from 'framer-motion';
 import { Navigation } from './menu/navigation';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export const Header = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, toggleOpen] = useState(false);
+
+  const toggle = () => toggleOpen((state) => !state);
+  const close = () => toggleOpen(false);
 
   return (
     <div>
@@ -26,6 +29,7 @@ export const Header = () => {
               `font-canela text-2xl md:text-4xl font-light text-primary relative`,
               isOpen ? 'text-yellow-primary' : 'text-current'
             )}
+            onClick={close}
           >
             <span className={cn('text-4xl md:text-5xl tracking-[-0.6rem]')}>
               T
@@ -41,10 +45,14 @@ export const Header = () => {
             </span>
           </Link>
         </div>
-        <Navigation className={cn('hidden', 'md:flex')} isOpen={isOpen} />
-        <MenuToggle isOpen={isOpen} toggle={() => toggleOpen()} />
+        <Navigation
+          onNavItemClick={close}
+          className={cn('hidden', 'md:flex')}
+          isOpen={isOpen}
+        />
+        <MenuToggle isOpen={isOpen} toggle={toggle} />
       </header>
-      <Menu isOpen={isOpen} />
+      <Menu isOpen={isOpen} onNavItemClick={close} />
     </div>
   );
 };

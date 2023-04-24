@@ -16,7 +16,8 @@ const variants = {
     y: 50,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 },
+      y: { stiffness: 1000, velocity: 1000 },
+      duration: 0.1,
     },
   },
 };
@@ -25,15 +26,21 @@ export interface NavMenuItemProps {
   icon: ReactNode;
   href: string;
   text: string;
+  onClick: () => void;
 }
 
-export const NavMenuItem = ({ icon, href, text }: NavMenuItemProps) => {
+export const NavMenuItem = ({
+  icon,
+  href,
+  text,
+  onClick,
+}: NavMenuItemProps) => {
   const pathname = usePathname();
 
   const active = pathname === href;
 
   return (
-    <Link href={href}>
+    <Link href={href} onClick={onClick}>
       <motion.li
         variants={variants}
         className={cn(

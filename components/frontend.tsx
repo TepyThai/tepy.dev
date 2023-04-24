@@ -12,6 +12,7 @@ const data: CardProps[] = [
     description: `I've been using React since its Class Components days back in 2018. I mostly built portfolio websites `,
     icon: <ReactIcon />,
     type: 1,
+    href: '/react',
   },
   {
     title: 'Rich Text Editor',
@@ -19,13 +20,14 @@ const data: CardProps[] = [
       'Using React and TipTap, I built a rich text editor that can be used in any React app. It supports all the basic formatting options, as well as custom blocks and inline nodes. See the source code on GitHub.',
     icon: <TipTapIcon />,
     type: 1,
+    href: '/rte',
   },
   {
-    title: 'Astro',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta enim, doloribus voluptatibus maxime harum cum! Deleniti fuga expedita, mollitia aut repellat, consectetur enim, voluptas cumque est corporis impedit obcaecati at?',
+    title: 'Next.js',
+    description: `I've been using Next.js since 2020. I've built a few websites with it, including this one. I'm also familiar with Next.js's API routes and serverless functions.`,
     icon: <AstroIcon />,
     type: 1,
+    href: '/next',
   },
 ];
 
