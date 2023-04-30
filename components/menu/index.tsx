@@ -54,7 +54,11 @@ export const Menu = ({
         )}
         variants={sidebar}
       ></motion.div>
-      <Navigation onNavItemClick={onNavItemClick} isOpen={isOpen} />
+      <Navigation
+        onNavItemClick={onNavItemClick}
+        isOpen={isOpen}
+        className={cn(!isOpen && 'hidden')}
+      />
     </motion.nav>
   );
 };

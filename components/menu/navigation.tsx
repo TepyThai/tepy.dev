@@ -2,7 +2,6 @@ import { HTMLMotionProps, motion } from 'framer-motion';
 import { NavMenuItem, NavMenuItemProps } from './menu-item';
 import { cn } from '@/lib/utils';
 import { AtomIcon, BinaryIcon, PencilIcon } from 'lucide-react';
-import { MenuItemProps } from '@radix-ui/react-dropdown-menu';
 
 const variants = {
   open: {
