@@ -5,7 +5,6 @@ const nextConfig = {
     appDir: true,
     mdxRs: true,
   },
-  swcMinify: false,
 };
 
 const withMDX = require('@next/mdx')();
