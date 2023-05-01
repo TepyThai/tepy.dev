@@ -31,7 +31,7 @@ module.exports = {
       },
       keyframes: {
         'slide-up': {
-          '0%, 50%': { top: '2rem', opacity: 0 },
+          '0%, 50%': { top: '6px', opacity: 0 },
           '100%': { top: '0', opacity: 1 },
         },
         'fade-in': {

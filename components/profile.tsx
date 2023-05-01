@@ -20,7 +20,7 @@ export const Profile = () => {
         <div className='relative inline-block w-[260px]'>
           <span
             id='frontendText'
-            className='absolute left-0 text-2xl font-bold text-gradient'
+            className={cn('absolute left-0 text-2xl font-bold text-gradient')}
           >
             Frontend
           </span>
@@ -34,7 +34,7 @@ export const Profile = () => {
               </span>
             </span>
           </span>
-          <span className='absolute text-3xl font-bold text-gradient left-40 animate-slide-up'>
+          <span className='absolute text-2xl font-bold text-gradient left-40 animate-slide-up'>
             Expert
           </span>
         </div>
