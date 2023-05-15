@@ -1,8 +1,10 @@
-import { getPostSlugsFromPath } from '@/app/server-utils';
 import { Card } from '@/components/card';
+import { getPostMetaFromPath } from '@/lib/getSlugs';
+
+export const dynamic = 'force-static';
 
 export default function Principle() {
-  const posts = getPostSlugsFromPath('./(p)');
+  const posts = getPostMetaFromPath('./(p)');
 
   return (
     <div>
