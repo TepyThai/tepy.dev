@@ -28,6 +28,7 @@ module.exports = {
           primary: '#273748',
         },
         brass: '#c88469',
+        'old-paper': '#E0C9A6',
       },
       keyframes: {
         'slide-up': {

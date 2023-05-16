@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+// import { cva } from 'class-variance-authority';
 import { Variants, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
@@ -22,30 +23,16 @@ type ThemeColors = {
   [key in CardProps['type']]: Theme;
 };
 
+// const card = cva([])
+
 const themeColors: ThemeColors = {
   1: {
     borderColor: 'border-yellow-primary',
     title: 'text-white',
   },
   2: {
-    borderColor: 'border-yellow-primary',
-    title: 'text-yellow-primary',
-  },
-};
-
-const cardAnimeVariants: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0, 0.71, 0.2, 1.01],
-    },
-    className: 'border-yellow-primary',
+    borderColor: 'border-blue-primary',
+    title: 'text-blue-primary',
   },
 };
 
@@ -62,7 +49,7 @@ export const Card: React.FC<CardProps> = ({
       whileInView='onscreen'
       viewport={{ once: true }}
       className={cn(
-        'h-56 w-full shrink-0 snap-start',
+        'h-60 w-full shrink-0 snap-start shadow-lg shadow-slate-950',
         'md:w-3/4',
         type === 2 &&
           cn(
@@ -79,7 +66,7 @@ export const Card: React.FC<CardProps> = ({
           themeColors[type].borderColor,
           type === 2 &&
             cn(
-              'rounded-none',
+              'rounded-none bg-old-paper',
               'group-first-of-type:rounded-t-lg group-last-of-type:rounded-b-lg'
             )
         )}
@@ -111,8 +98,8 @@ export const Card: React.FC<CardProps> = ({
           </div>
           <p
             className={cn(
-              'text-base line-clamp-2 md:line-clamp-3',
-              type === 2 && 'text-lg md:text-2xl'
+              'text-base line-clamp-3 md:line-clamp-4',
+              type === 2 && 'text-lg md:text-2xl text-blue-primary'
             )}
           >
             {description}
@@ -121,4 +108,20 @@ export const Card: React.FC<CardProps> = ({
       </motion.div>
     </motion.div>
   );
+};
+
+const cardAnimeVariants: Variants = {
+  offscreen: {
+    y: 300,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0, 0.71, 0.2, 1.01],
+    },
+    className: 'border-yellow-primary',
+  },
 };

@@ -22,7 +22,7 @@ const themeColors: ThemeColors = {
   },
   2: {
     bg: 'bg-blue-primary',
-    title: 'text-brass',
+    title: 'text-yellow-primary',
   },
 };
 

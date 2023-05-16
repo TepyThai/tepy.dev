@@ -3,7 +3,6 @@
 import { cn } from '@/lib/utils';
 import { Menu } from './menu';
 import { MenuToggle } from './menu/menu-toggle';
-import { useCycle } from 'framer-motion';
 import { Navigation } from './menu/navigation';
 import Link from 'next/link';
 import { useState } from 'react';
