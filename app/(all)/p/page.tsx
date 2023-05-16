@@ -1,20 +1,27 @@
 import { Card } from '@/components/card';
 import { getPostMetaFromPath } from '@/lib/getSlugs';
+import { cn } from '@/lib/utils';
 
-export const dynamic = 'force-static';
-
-export default function Principle() {
-  const posts = getPostMetaFromPath('./(p)');
+export default async function Principle() {
+  const posts = getPostMetaFromPath('writing');
 
   return (
     <div>
       <ul>
-        {posts.map((title) => (
+        {posts.map((title: any) => (
           <li key={title}>
-            <Card title={title} description='' type={2} href={`/w/${title}`} />
+            <h2 className={cn('first-letter:text-xl')}>{title}</h2>
           </li>
         ))}
       </ul>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = getPostMetaFromPath('writing');
+
+  return posts.map((post) => ({
+    slug: post,
+  }));
 }
