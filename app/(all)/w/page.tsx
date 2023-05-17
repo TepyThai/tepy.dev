@@ -1,17 +1,33 @@
-import { Card } from '@/components/card';
 import { getPostMetaFromPath } from '@/lib/getSlugs';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export default async function Writing() {
-  const posts = getPostMetaFromPath('writing');
+  const posts = await getPostMetaFromPath('writing', 100);
 
   return (
     <div>
-      <ul>
-        {posts.map((title: any) => (
-          <li key={title}>
-            <h2 className={cn('first-letter:text-xl')}>{title}</h2>
-          </li>
+      <ul className={cn('flex flex-col gap-4')}>
+        {posts.map(({ slug, excerpt, title }) => (
+          <Link href={`/w/${slug}`} key={slug}>
+            <li>
+              <h2
+                className={cn(
+                  'text-2xl',
+                  ' first-letter:text-primary first-letter:text-5xl'
+                )}
+              >
+                {title}
+              </h2>
+              <small
+                className={cn(
+                  'child-inline text-gray-600 block max-w-[60ch] pl-4'
+                )}
+              >
+                {excerpt} <span>...</span>
+              </small>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
@@ -19,7 +35,7 @@ export default async function Writing() {
 }
 
 export async function generateStaticParams() {
-  const posts = getPostMetaFromPath('writing');
+  const posts = await getPostMetaFromPath('writing', 100);
 
   return posts.map((post) => ({
     slug: post,

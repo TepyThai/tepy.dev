@@ -6,10 +6,16 @@ import { Frontmatter } from './utils';
 export async function getMdx({
   relativePath,
   slug,
+  excerpt = false,
+  excerptLength = 200,
 }: {
   relativePath: string;
   slug: string;
+  excerpt?: boolean;
+  excerptLength?: number;
 }) {
+  let excerptContent;
+
   const contentDir = resolve(
     process.cwd(),
     'contents',
@@ -26,6 +32,12 @@ export async function getMdx({
       },
     },
   });
-  console.log('frontmatter', frontmatter);
-  return { content, frontmatter };
+  if (excerpt) {
+    const { content } = await compileMDX({
+      source: source.split('---')[2].slice(0, excerptLength),
+    });
+    excerptContent = content;
+  }
+
+  return { content, frontmatter, excerpt: excerptContent };
 }

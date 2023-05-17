@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 interface Props {
   title: string;
   type: 1 | 2;
+  className?: string;
   [key: string]: any;
 }
 
@@ -29,6 +30,7 @@ const themeColors: ThemeColors = {
 export const Section: React.FC<Props> = ({
   title,
   type,
+  className,
   children,
   ...props
 }) => {
@@ -36,7 +38,7 @@ export const Section: React.FC<Props> = ({
     <section
       className={cn(
         `text-left min-h-[50vh] full-width ${themeColors[type].bg}`,
-        'md:h-full'
+        className
       )}
       {...props}
     >
