@@ -49,7 +49,7 @@ export const Card: React.FC<CardProps> = ({
       whileInView='onscreen'
       viewport={{ once: true }}
       className={cn(
-        'h-60 w-full shrink-0 snap-start shadow-lg shadow-slate-950',
+        'h-60 w-full shrink-0 snap-start shadow-slate-950',
         'md:w-3/4',
         type === 2 &&
           cn(

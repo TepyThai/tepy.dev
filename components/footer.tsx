@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer
       className={cn(
-        'bg-primary text-white-ish',
+        'w-full bg-primary text-white-ish',
         'border-t border-yellow-primary'
       )}
     >

@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={cn(
           'grid grid-rows-[auto,1fr,auto] min-h-screen',
-          'text-xl max-w-screen-xl mx-auto text-primary overflow-x-hidden'
+          'text-xl text-primary overflow-x-hidden'
         )}
       >
         <Header />

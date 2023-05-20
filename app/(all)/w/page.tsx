@@ -14,7 +14,7 @@ export default async function Writing() {
               <h2
                 className={cn(
                   'text-2xl',
-                  ' first-letter:text-primary first-letter:text-5xl'
+                  'first-letter:text-primary first-letter:text-5xl'
                 )}
               >
                 {title}

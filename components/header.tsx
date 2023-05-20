@@ -14,8 +14,8 @@ export const Header = () => {
   const close = () => toggleOpen(false);
 
   return (
-    <div>
-      <header
+    <header>
+      <div
         className={cn(
           'mx-auto flex items-center justify-between p-4',
           isOpen && 'z-20 sticky top-0',
@@ -51,8 +51,8 @@ export const Header = () => {
           isOpen={isOpen}
         />
         <MenuToggle isOpen={isOpen} toggle={toggle} />
-      </header>
+      </div>
       <Menu isOpen={isOpen} onNavItemClick={close} />
-    </div>
+    </header>
   );
 };
