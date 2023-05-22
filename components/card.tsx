@@ -75,6 +75,11 @@ export const Card: React.FC<CardProps> = ({
           href={href}
           className={cn(
             'absolute inset-0 w-full h-full p-6 ',
+            `${
+              href
+                ? 'cursor-pointer pointer-events-auto'
+                : 'cursor-default pointer-events-none'
+            }`,
             type === 2 &&
               cn(
                 'group-odd:skew-x-3 group-even:-skew-x-3 group-odd:pl-4 group-odd:pr-2 group-even:pl-2 group-even:pr-4',
