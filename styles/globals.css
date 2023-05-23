@@ -31,4 +31,8 @@
   .child-inline > * {
     display: inline;
   }
+
+  .shape-outside {
+    shape-outside: circle(28%);
+  }
 }

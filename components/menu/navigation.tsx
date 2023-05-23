@@ -28,7 +28,8 @@ export const Navigation = ({
     className={cn(
       'w-full h-full mx-auto px-20 py-32 absolute inset-0',
       isOpen && 'z-10',
-      'md:flex md:px-0 md:py-0 md:gap-x-4 md:items-baseline md:justify-end md:static',
+      'flex px-0 py-0 gap-x-4 items-baseline justify-end static',
+      // 'md:flex md:px-0 md:py-0 md:gap-x-4 md:items-baseline md:justify-end md:static',
       className
     )}
     {...props}
@@ -51,6 +52,6 @@ export const itemIds: Omit<NavMenuItemProps, 'onClick'>[] = [
     icon: <PencilIcon />,
     href: '/w',
   },
-  { text: 'Principle', icon: <AtomIcon />, href: '/p' },
-  { text: 'Project', icon: <BinaryIcon />, href: '/pj' },
+  // { text: 'Principle', icon: <AtomIcon />, href: '/p' },
+  // { text: 'Project', icon: <BinaryIcon />, href: '/pj' },
 ];

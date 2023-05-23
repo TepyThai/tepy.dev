@@ -45,12 +45,23 @@ export const NavMenuItem = ({
         variants={variants}
         className={cn(
           'list-none mb-8 cursor-pointer text-white flex items-center justify-start gap-x-4 py-2 text-2xl',
-          'md:inline md:mb-0 md:py-0 md:text-primary',
-          'md:hover:text-teal-primary',
-          active && 'text-yellow-primary md:text-teal-primary'
+          // 'md:inline md:mb-0 md:py-0 md:text-primary',
+          // 'md:hover:text-teal-primary',
+          // active && 'text-yellow-primary md:text-teal-primary'
+          'inline mb-0 py-0 text-primary',
+          'hover:text-teal-primary',
+          active && 'text-yellow-primary text-teal-primary'
         )}
       >
-        <span className={cn('md:hidden')}> {icon}</span>
+        <span
+          className={cn(
+            // 'md:hidden',
+            'hidden'
+          )}
+        >
+          {' '}
+          {icon}
+        </span>
         {text}
       </motion.li>
     </Link>

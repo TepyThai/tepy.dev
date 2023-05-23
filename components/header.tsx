@@ -47,12 +47,13 @@ export const Header = () => {
         </div>
         <Navigation
           onNavItemClick={close}
-          className={cn('hidden', 'md:flex')}
+          className={cn('flex')}
+          // className={cn('hidden', 'md:flex')}
           isOpen={isOpen}
         />
-        <MenuToggle isOpen={isOpen} toggle={toggle} />
+        {/* <MenuToggle isOpen={isOpen} toggle={toggle} /> */}
       </div>
-      <Menu isOpen={isOpen} onNavItemClick={close} />
+      {/* <Menu isOpen={isOpen} onNavItemClick={close} /> */}
     </header>
   );
 };
