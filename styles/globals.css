@@ -35,4 +35,8 @@
   .shape-outside {
     shape-outside: circle(28%);
   }
+
+  .code-block pre > code {
+    display: grid;
+  }
 }
