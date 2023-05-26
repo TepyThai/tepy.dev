@@ -49,13 +49,13 @@ export async function getMdx({
   return { content, frontmatter, excerpt: excerptContent };
 }
 
+const darkThemePath = resolve(process.cwd(), 'lib/moonlight-theme.json');
+
 const rehypePrettyCodeOptions = {
   // Use one of Shiki's packaged themes
-  theme: 'one-dark-pro',
+  // theme,
   // Or your own JSON theme
-  // theme: JSON.parse(
-  //   fs.readFileSync(require.resolve('./themes/dark.json'), 'utf-8')
-  // ),
+  theme: JSON.parse(readFileSync(darkThemePath, 'utf-8')),
 
   // Keep the background or use a custom background color?
   keepBackground: true,
@@ -71,7 +71,7 @@ const rehypePrettyCodeOptions = {
   },
   onVisitHighlightedLine(node: { properties: { className: string[] } }) {
     // Each line node by default has `class="line"`.
-    node.properties.className.push('highlighted');
+    node.properties.className.push('line--highlighted');
   },
   onVisitHighlightedWord(node: { properties: { className: string[] } }) {
     // Each word node has no className by default.

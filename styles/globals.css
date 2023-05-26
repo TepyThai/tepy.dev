@@ -36,7 +36,65 @@
     shape-outside: circle(28%);
   }
 
-  .code-block pre > code {
+  /* .code-block pre > code {
     display: grid;
   }
+
+  .code-block pre > code {
+    counter-reset: line;
+  }
+
+  .code-block pre > code > .line::before {
+    counter-increment: line;
+    content: counter(line);
+
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
+
+  .code-block pre > code[data-line-numbers-max-digits='2'] > .line::before {
+    width: 2rem;
+  }
+
+  .code-block pre > code[data-line-numbers-max-digits='3'] > .line::before {
+    width: 3rem;
+  } */
+}
+
+pre > code {
+  display: grid;
+}
+
+code {
+  counter-reset: line;
+}
+
+code > .line::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+code[data-line-numbers-max-digits='2'] > .line::before {
+  width: 2rem;
+}
+
+code[data-line-numbers-max-digits='3'] > .line::before {
+  width: 3rem;
+}
+
+code > .line--highlighted {
+  background: #016d75;
+  border-left-color: #e9d055;
+  border-left-width: 3px;
+  border-radius: 5px;
 }
