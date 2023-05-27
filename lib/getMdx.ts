@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Frontmatter } from './utils';
 import rehypePrettyCode from 'rehype-pretty-code';
+import 'shiki/themes/one-dark-pro.json';
 
 export async function getMdx({
   relativePath,
@@ -53,7 +54,7 @@ const darkThemePath = resolve(process.cwd(), 'lib/moonlight-theme.json');
 
 const rehypePrettyCodeOptions = {
   // Use one of Shiki's packaged themes
-  // theme,
+  theme: 'one-dark-pro',
   // Or your own JSON theme
   // theme: JSON.parse(readFileSync(darkThemePath, 'utf-8')),
 
