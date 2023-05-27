@@ -55,7 +55,7 @@ const rehypePrettyCodeOptions = {
   // Use one of Shiki's packaged themes
   // theme,
   // Or your own JSON theme
-  theme: JSON.parse(readFileSync(darkThemePath, 'utf-8')),
+  // theme: JSON.parse(readFileSync(darkThemePath, 'utf-8')),
 
   // Keep the background or use a custom background color?
   keepBackground: true,
