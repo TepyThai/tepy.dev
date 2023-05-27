@@ -11,7 +11,7 @@ ogImage:
   url: '/images/tils/why-100vw-causes-horizontal-scroll/cover.png'
 ---
 
-Do you ever wonder why sometimes your site just has a horizontal scrollbar appears out of nowhere? Today I just ran into it again (as always 😆) and I somehow figured out how to remove it. So here is the step I took to debug and fix it.
+Do you ever wonder why sometimes your site just has a horizontal scrollbar appears out of nowhere? Today I just ran into it again and I somehow figured out how to remove it. So here is the step I took to debug and fix it.
 
 - Try the global border or outline color trick to find which element is causing it
 
@@ -23,7 +23,7 @@ Do you ever wonder why sometimes your site just has a horizontal scrollbar appea
 
 - Find elements with width bigger than the document's width (code from [csstrick](https://css-tricks.com/findingfixing-unintended-body-overflow/))
 
-```js {1}
+```js {1-3, 5}
 var docWidth = document.documentElement.offsetWidth;
 
 [].forEach.call(document.querySelectorAll('*'), function (el) {
@@ -37,4 +37,4 @@ var docWidth = document.documentElement.offsetWidth;
 
 So, back to the title, why would `100vw` be the cause? Well, the answer is:
 
-> When you set an element's width to `100vw`, the element's width now will be the whole `view width` of the browser and the important part is **`100vw` does not include the `vertical scrollbar`'s `width` into its calculation at all**. Therefore, when there is a `vertical scrollbar`, the `total width` will be the sum of `element's width` and `vertical scrollbar's width`, which causes the **`horizontal scrollbar`**.
+When you set an element's width to `100vw`, the element's width now will be the whole `view width` of the browser and the important part is **`100vw` does not include the `vertical scrollbar`'s `width` into its calculation at all**. Therefore, when there is a `vertical scrollbar`, the `total width` will be the sum of `element's width` and `vertical scrollbar's width`, which causes the **`horizontal scrollbar`**.

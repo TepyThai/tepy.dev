@@ -37,11 +37,11 @@ export async function getMdx({
   if (excerpt) {
     const { content } = await compileMDX({
       source: source.split('---')[2].slice(0, excerptLength),
-      options: {
-        mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
-        },
-      },
+      // options: {
+      //   mdxOptions: {
+      //     rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+      //   },
+      // },
     });
     excerptContent = content;
   }
