@@ -2,8 +2,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Frontmatter } from './utils';
-import rehypePrettyCode from 'rehype-pretty-code';
-import 'shiki/themes/one-dark-pro.json';
+import rehypeHighlight from 'rehype-highlight';
 
 export async function getMdx({
   relativePath,
@@ -30,8 +29,8 @@ export async function getMdx({
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        useDynamicImport: true,
-        rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+        // remarkPlugins: [[remarkTwoslash, { theme: darkThemePath, path: '/' }]],
+        rehypePlugins: [rehypeHighlight],
       },
     },
   });
