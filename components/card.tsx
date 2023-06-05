@@ -93,7 +93,7 @@ export const Card: React.FC<CardProps> = ({
             )}
           >
             {icon && (
-              <div className='px-2 py-2 mb-4 mr-0 border rounded-lg w-max h-max border-yellow-primary md:mr-4 md:mb-0'>
+              <div className='w-auto px-2 py-2 mb-4 mr-0 border rounded-lg h-14 border-yellow-primary md:mr-4 md:mb-0'>
                 {icon}
               </div>
             )}
