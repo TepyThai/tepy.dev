@@ -37,7 +37,7 @@ export const Section: React.FC<Props> = ({
   return (
     <section
       className={cn(
-        `text-left min-h-[50vh] full-width ${themeColors[type].bg}`,
+        `text-left min-h-[50vh] w-full ${themeColors[type].bg}`,
         className
       )}
       {...props}

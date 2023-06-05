@@ -23,7 +23,7 @@ export default function RootLayout({
         )}
       >
         <Header />
-        <main className={cn('container mx-auto px-4')}>{children}</main>
+        <main className={cn('w-full h-full')}>{children}</main>
         <Footer />
       </body>
     </html>
