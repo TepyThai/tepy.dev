@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardProps } from './card';
-import { AstroIcon } from './icon/astro-icon';
+import { NextIcon } from './icon/next-icon';
 import { ReactIcon } from './icon/react-icon';
 import { TipTapIcon } from './icon/tiptap-icon';
 import { Section } from './section';
@@ -22,7 +22,7 @@ const data: CardProps[] = [
   {
     title: 'Next.js',
     description: `I've been a fan of Next.js and Vercel since 2019. I built my first fullstack site with Next.js and Graphql. Rebuilt my personal site twice with Next.js and MDX. Unfortunately, I've not got the chance to build any production-ready apps with Next.js in my job yet, so I'm really looking forward to it. I believe that as a Frontend developer, mastering Next.js is a great way to understand and build a better web app.`,
-    icon: <AstroIcon />,
+    icon: <NextIcon />,
     type: 1,
   },
 ];
