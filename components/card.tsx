@@ -89,15 +89,23 @@ export const Card: React.FC<CardProps> = ({
         >
           <div
             className={cn(
-              'flex flex-col items-center justify-start mb-2 md:flex-row md:mb-8'
+              'flex flex-col items-center justify-start mb-2 md:flex-row md:mb-8 overflow-hidden'
             )}
           >
             {icon && (
-              <div className='w-auto px-2 py-2 mb-4 mr-0 border rounded-lg h-14 border-yellow-primary md:mr-4 md:mb-0'>
+              <div
+                aria-label='card-icon'
+                className='px-2 py-2 mb-4 mr-0 border rounded-lg w-max h-14 border-yellow-primary md:mr-4 md:mb-0'
+              >
                 {icon}
               </div>
             )}
-            <h3 className={cn('text-3xl font-bold', themeColors[type].title)}>
+            <h3
+              className={cn(
+                'text-2xl sm:text-3xl font-bold',
+                themeColors[type].title
+              )}
+            >
               {title}
             </h3>
           </div>

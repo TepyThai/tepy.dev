@@ -19,7 +19,7 @@ export const Header = () => {
         className={cn(
           'mx-auto flex items-center justify-between p-4',
           isOpen && 'z-20 sticky top-0',
-          'md:flex-row md:container'
+          'md:flex-row container max-w-4xl'
         )}
       >
         <div className={cn('flex items-center')}>

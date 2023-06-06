@@ -12,7 +12,7 @@ export const Footer = () => {
       <div
         className={cn(
           'flex items-start justify-between w-full h-max px-4 py-12',
-          'container mx-auto'
+          'container mx-auto max-w-4xl'
         )}
       >
         <span>@ {new Date().getFullYear()}</span>
