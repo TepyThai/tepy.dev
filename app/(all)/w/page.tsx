@@ -8,7 +8,7 @@ export default async function Writing() {
   const posts = await getPostMetaFromPath('writing', 100);
 
   return (
-    <div className={cn('my-2', 'md:my-8')}>
+    <div className={cn('my-2 container max-w-4xl mx-auto', 'md:my-8')}>
       <div
         className={cn(
           'animate-fade-in mt-4 mb-8',

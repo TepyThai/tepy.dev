@@ -10,7 +10,12 @@ export const Profile = () => {
         'mt-10 h-[50dvh] md:h-[65dvh] mb-10 md:mb-20 max-w-5xl md:px-4 lg:px-8 py-4 md:py-6 lg:py-8 items-center justify-center flex flex-col md:flex-row md:justify-evenly mx-auto'
       )}
     >
-      <div className='flex flex-col items-center justify-center h-full mb-8 gap-y-4'>
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center h-full mb-8 gap-y-4',
+          'md:gap-y-8'
+        )}
+      >
         <h1 className='leading-loose tracking-wide'>
           Hi, I&apos;m
           <span className='text-3xl font-bold sm:text-5xl text-teal-primary font-canela'>
